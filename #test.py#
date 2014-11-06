@@ -1,5 +1,0 @@
-import numpy as np
-
-for i in range(10):
-    this.x = 10
-    print 'her er det mer'
