@@ -45,6 +45,41 @@
 (add-hook 'LaTeX-mode-hook 'turn-on-reftex)
 (setq reftex-plug-into-AUCTeX t)
 (setq-default TeX-PDF-mode t)
+;; (eval-after-load 'latex 
+;;   '(define-key LaTeX-mode-map ("[") (lambda () 
+;; 					(interactive)
+;; 					(insert "å"))))
+
+(add-hook 'LaTeX-mode-hook
+          (lambda () (local-set-key (kbd "[") #'(lambda () (interactive) (insert "å")))))
+(add-hook 'LaTeX-mode-hook
+          (lambda () (local-set-key (kbd ";") #'(lambda () (interactive) (insert "ø")))))
+(add-hook 'LaTeX-mode-hook
+          (lambda () (local-set-key (kbd "'") #'(lambda () (interactive) (insert "æ")))))
+(add-hook 'LaTeX-mode-hook
+          (lambda () (local-set-key (kbd "M-;") #'(lambda () (interactive) (insert ";")))))
+(add-hook 'LaTeX-mode-hook
+          (lambda () (local-set-key (kbd "M-[") #'(lambda () (interactive) (insert "[")))))
+(add-hook 'LaTeX-mode-hook
+          (lambda () (local-set-key (kbd "M-'") #'(lambda () (interactive) (insert "'")))))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -202,8 +237,9 @@
 (global-set-key (kbd "C-S-l") 'me/select-previous-line)
 
 
+
 (defun me/fullscreen (&optional f)
- "Function that toggles maximized window (not actually FULL-screen)"
+ "Function that toggles maximized window (not actually FULL-screen). Doesn't work under gnome for some reason"
        (interactive)
        (x-send-client-message nil 0 nil "_NET_WM_STATE" 32
                '(2 "_NET_WM_STATE_MAXIMIZED_VERT" 0))
@@ -233,3 +269,20 @@
 your recently and most frequently used commands.")
 
 (global-set-key (kbd "M-x") 'smex)
+
+
+
+
+(autoload 'octave-mode "octave-mod" nil t)
+(setq auto-mode-alist
+      (cons '("\\.m$" . octave-mode) auto-mode-alist))
+
+(add-hook 'octave-mode-hook
+          (lambda ()
+            (abbrev-mode 1)
+            (auto-fill-mode 1)
+            (if (eq window-system 'x)
+                (font-lock-mode 1))))
+
+
+
