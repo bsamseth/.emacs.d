@@ -1,6 +1,10 @@
 (TeX-add-style-hook "oblig.tex"
  (lambda ()
+    (LaTeX-add-environments
+     "exercise")
     (TeX-add-symbols
+     '("mean" 1)
+     '("e" 1)
      '("curl" 1)
      '("pd" 2)
      '("newfig" 3)
@@ -12,6 +16,8 @@
      "HRule")
     (TeX-run-style-hooks
      "fancyhdr"
+     "pdfpages"
+     "cancel"
      "import"
      "graphicx"
      "fullpage"

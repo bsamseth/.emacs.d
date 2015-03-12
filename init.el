@@ -12,7 +12,7 @@
  '(ansi-color-names-vector ["#2d3743" "#ff4242" "#74af68" "#dbdb95" "#34cae2" "#008b8b" "#00ede1" "#e1e1e0"])
  '(custom-enabled-themes (quote (lush)))
  '(custom-safe-themes (quote ("1ba463f6ac329a56b38ae6ac8ca67c8684c060e9a6ba05584c90c4bffc8046c3" "1636c901ca6cedd80bea5d97b59238ee9467b712a2cf39c8bb1cd3a49cc6f0ba" "4cefd96dbec5c775b1b396989d695d6b1cd4961f6ad78595f4ef45d8805a88da" default)))
- '(menu-bar-mode nil)
+ '(menu-bar-mode 1)
  '(package-archives (quote (("gnu" . "http://elpa.gnu.org/packages/") ("melpa" . "http://melpa.milkbox.net/packages/") ("marmalade" . "http://marmalade-repo.org/packages/"))))
  '(template-use-package t)
  '(tool-bar-mode nil))
@@ -32,7 +32,9 @@
 (require 'template) ;; templates for files, i.e. Oblig template
 (template-initialize)
 
-
+;; c style
+(setq c-default-style "java"
+          c-basic-offset 4)
 
 
 ;; some latex config
@@ -94,7 +96,13 @@
 (add-to-list 'load-path
               "~/.emacs.d/plugins/yasnippet")
 (require 'yasnippet)
-(yas-global-mode 1)
+(yas-global-mode nil)
+
+(add-to-list 'load-path
+              "~/.emacs.d/plugins/auto-complete")
+(require 'auto-complete-config)
+(add-to-list 'ac-dictionary-directories "~/.emacs.d/plugins/ac-dict")
+(ac-config-default)
 
 
 
@@ -246,7 +254,7 @@
        (x-send-client-message nil 0 nil "_NET_WM_STATE" 32
                '(2 "_NET_WM_STATE_MAXIMIZED_HORZ" 0)))
 (global-set-key (kbd "<f11>") 'me/fullscreen)
-(me/fullscreen)
+;; (me/fullscreen)
 
 ;; Don't show start up message on launch
 (setq inhibit-startup-message t)
@@ -285,4 +293,20 @@ your recently and most frequently used commands.")
                 (font-lock-mode 1))))
 
 
+(windmove-default-keybindings)
+(setq windmove-wrap-around t)
 
+
+
+
+
+
+;; (defvar my-keys-minor-mode-map (make-keymap) "my-keys-minor-mode keymap.")
+
+;; (define-key my-keys-minor-mode-map (kbd "C-i") 'some-function)
+
+;; (define-minor-mode my-keys-minor-mode
+;;   "A minor mode so that my key settings override annoying major modes."
+;;   t " my-keys" 'my-keys-minor-mode-map)
+
+;; (my-keys-minor-mode 1)  

@@ -14,6 +14,8 @@
 \usepackage{fullpage}
 \usepackage{graphicx}
 \usepackage{import}
+\usepackage{cancel}
+\usepackage{pdfpages}
 
 %\renewcommand{\theequation}{(\thesubsection.hei\arabic{equation})}
 \newcommand\numberthis{\addtocounter{equation}{1}\tag{\theequation}}
@@ -93,6 +95,13 @@
 \renewcommand{\div}[1] {\nabla\cdot\vec{#1}}
 \newcommand{\curl}[1] {\nabla\times\vec{#1}}
 \renewcommand{\vec}{\mathbf} % bold face for vectors
+\newcommand{\e}[1] {\times 10^{#1}}
+\newcommand{\mean}[1] {\langle #1 \rangle}
+
+%% Numbered exercises
+\newcounter{excount}[section]
+\newenvironment{exercise}[1][]{\addtocounter{excount}{1} \noindent {\bf Oppgave
+    \arabic{excount} #1}\hspace{2mm}}{\vspace{4mm}}
 
 
 

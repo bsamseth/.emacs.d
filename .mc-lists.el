@@ -5,6 +5,7 @@
       '(
 	me/set-mark
 	nonincremental-search-forward
+	smex
 	))
 
 (setq mc/cmds-to-run-once
