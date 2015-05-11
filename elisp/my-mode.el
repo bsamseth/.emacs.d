@@ -40,4 +40,7 @@
 ;; Turn off the minor mode in the minibuffer
 (add-hook 'minibuffer-setup-hook 'turn-off-my-mode)
 
+
+
+
 (provide 'my-mode)

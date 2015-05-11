@@ -8,7 +8,8 @@
 
 
 ;; Don't show start up message on launch
-(setq inhibit-startup-message t)
+(setq inhibit-startup-message t inhibit-startup-echo-area-message t)
+(setq initial-scratch-message "")
 
 ;; supercharge completion and stuff. Super fuzzy completion --> tii in .emacs.d/ gives init.el !
 (require 'ido)

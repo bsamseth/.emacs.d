@@ -17,10 +17,11 @@
 ;; swap out beginning-of-line with back-to-indentation
 (define-key my-mode-map (kbd "C-a") 'back-to-indentation) 
 ;; auto ident
-(define-key my-mode-map (kbd "RET") 'newline-and-indent)
+;; this should not be in my-mode, since it should be overriden where it needs to, e.g. to follow links in manual
+(global-set-key (kbd "RET") 'newline-and-indent)
 ;; going to next line when there is none will make a new line
 (setq next-line-add-newlines t)
-
+(define-key my-mode-map (kbd "C-S-r") 'query-replace-regexp)
 
 ;; ========================================
 ;; Functions made by myself

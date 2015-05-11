@@ -13,9 +13,12 @@
      '("matlabscript" 2)
      "numberthis"
      "horline"
-     "HRule")
+     "HRule"
+     "baselinestretch")
     (TeX-run-style-hooks
      "fancyhdr"
+     "pgfplots"
+     "siunitx"
      "pdfpages"
      "cancel"
      "import"

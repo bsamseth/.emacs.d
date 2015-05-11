@@ -16,6 +16,29 @@
 \usepackage{import}
 \usepackage{cancel}
 \usepackage{pdfpages}
+\usepackage{siunitx}
+        \DeclareSIUnit\gauss{G}
+	\sisetup{exponent-product = \cdot}	% Prikk som multiplikasjonstegn (i stedet for kryss).
+ 	\sisetup{output-decimal-marker  =  {.}}	% Punktum som desimalskilletegn (i stedet for komma).
+ 	\sisetup{separate-uncertainty = true} 	% Pluss-minus-form på
+                                % usikkerhet (i stedet for parentes). 
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.10}
+
+% Denne setter navnet på abstract til Sammendrag
+\renewenvironment{abstract}{\global\setbox\absbox=\vbox\bgroup
+\hsize=\textwidth\def\baselinestretch{1}%
+\noindent\unskip\textbf{Sammendrag}
+\par\medskip\noindent\unskip\ignorespaces}
+{\egroup}
+
+% Disse kommandoene definerer hvor stor andel av siden som kan være dekket av figurer. Kan gjøre det enklere å plassere figurer.
+\setcounter{totalnumber}{15}
+\renewcommand{\textfraction}{0.05}
+\renewcommand{\topfraction}{0.95}
+\renewcommand{\bottomfraction}{0.95}
+\renewcommand{\floatpagefraction}{0.35}
+
 
 %\renewcommand{\theequation}{(\thesubsection.hei\arabic{equation})}
 \newcommand\numberthis{\addtocounter{equation}{1}\tag{\theequation}}
