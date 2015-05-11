@@ -21,7 +21,12 @@
 (global-set-key (kbd "RET") 'newline-and-indent)
 ;; going to next line when there is none will make a new line
 (setq next-line-add-newlines t)
+;; shortcut for querry replace
 (define-key my-mode-map (kbd "C-S-r") 'query-replace-regexp)
+;; make C-x C-b and C-<TAB> do change buffer
+(define-key my-mode-map (kbd "C-x C-b") 'ido-switch-buffer)
+(define-key my-mode-map (kbd "C-<tab>") 'ido-switch-buffer)
+
 
 ;; ========================================
 ;; Functions made by myself
