@@ -23,7 +23,8 @@
  	\sisetup{separate-uncertainty = true} 	% Pluss-minus-form på
                                 % usikkerhet (i stedet for parentes). 
 \usepackage{pgfplots}
-\pgfplotsset{compat=1.10}
+\pgfplotsset{compat=1.9}
+\usepackage{comment}
 
 % Denne setter navnet på abstract til Sammendrag
 \renewenvironment{abstract}{\global\setbox\absbox=\vbox\bgroup

@@ -4,15 +4,16 @@
 (setq inhibit-default-init t)
 
 (let ((default-directory "~/.emacs.d/"))
-  (normal-top-level-add-subdirs-to-load-path))
+   (normal-top-level-add-subdirs-to-load-path))
 
 ;; (add-to-list 'load-path "~/.emacs.d/")
-;; (add-to-list 'load-path "~/.emacs.d/elisp/")
+;;(add-to-list 'load-path "~/.emacs.d/elisp/")
 
 (load-library "keys")
 (load-library "orgmode_config")
 (load-library "modes")
 (load-library "preferences")
+;; (load-library "gnus_config")
 
 ;;Things added by changing things through customize
 (setq custom-file "~/.emacs.d/elisp/emacs-custom.el")
@@ -24,5 +25,3 @@
   (package-initialize)
   (add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/") t)
   )
-
-

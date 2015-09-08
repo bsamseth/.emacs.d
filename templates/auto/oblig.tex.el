@@ -17,6 +17,7 @@
      "baselinestretch")
     (TeX-run-style-hooks
      "fancyhdr"
+     "comment"
      "pgfplots"
      "siunitx"
      "pdfpages"

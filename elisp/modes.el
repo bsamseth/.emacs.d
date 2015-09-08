@@ -1,18 +1,26 @@
 ;; This file is for mode specific preferences
 
-;; disable autocomplete-mode in minibuffer, IDO does that allready
-(add-hook 'minibuffer-setup-hook (lambda () (auto-complete-mode -1)))
 
-;; Spellchecking
-(setq ispell-dictionary "norsk")
-(define-key my-mode-map (kbd "C-<f8>") 'flyspell-check-previous-highlighted-word)
+;; ========================================
+;; Python
+;; ========================================
+(add-hook 'python-mode-hook
+  (lambda () (setq python-indent-offset 4)
+    (require 'company-jedi)
+    (autoload 'jedi:setup "jedi" nil t)
+    (add-hook 'python-mode-hook 'jedi:setup)
+    (add-to-list 'company-backends 'company-jedi)
+    )
+)
+(defadvice auto-complete-mode (around disable-auto-complete-for-python)
+  (unless (eq major-mode 'python-mode) ad-do-it))
+
+(ad-activate 'auto-complete-mode)
 
 
-;; c style
-(setq c-default-style "java" c-basic-offset 4)
-
-
-;; Latex
+;; ========================================
+;; LaTeX
+;; ========================================
 (setq TeX-auto-save t)
 (setq TeX-parse-self t)
 (setq-default TeX-master nil)
@@ -30,6 +38,10 @@
 ;; works.
 (setq reftex-bibliography-commands '("bibliography" "nobibliography" "addbibresource"))
 (setq-default TeX-PDF-mode t)
+
+(require 'company-auctex)
+(company-auctex-init)
+
 
 ;; make øæå work in latex and org mode, and set the ;'[] to M- and then the key
 
@@ -67,6 +79,51 @@
 
 
 
+
+;; ;; ========================================
+;; ;; Company (Complete Anything)
+;; ;; ========================================
+(require 'company)
+(company-mode-on)
+;; (add-to-list 'company-backends 'company-c-headers)
+;; (add-to-list 'company-backends 'company-math-symbols-latex)
+;; (add-to-list 'company-backends 'company-latex-commands)
+;; (add-to-list 'company-backends 'company-web-html)
+;; (add-to-list 'company-backends 'company-anaconda)
+;; (add-to-list 'company-backends 'company-jedi)
+;; (eval-after-load 'company
+;;   '(add-to-list 'company-backends 'company-irony))
+(add-hook 'after-init-hook 'global-company-mode)
+
+
+;; ========================================
+;; Emacs Code Browser (ECB)
+;; ========================================
+;;; activate ecb
+(require 'ecb)
+(require 'ecb-autoloads)
+
+(setq ecb-layout-name "left3")
+(setq ecb-compile-window-height 12)
+
+
+
+
+
+;; ========================================
+;; Misc
+;; ========================================
+;; disable autocomplete-mode in minibuffer, IDO does that allready
+(add-hook 'minibuffer-setup-hook (lambda () (auto-complete-mode -1)))
+
+;; Spellchecking
+(setq ispell-dictionary "norsk")
+(define-key my-mode-map (kbd "C-<f8>") 'flyspell-check-previous-highlighted-word)
+
+
+;; c style
+(setq c-default-style "java" c-basic-offset 4)
+
 ;; lisp goodness loads from here
 (setq load-path (cons (expand-file-name "~/.emacs.d/lisp/")
                             load-path))
@@ -80,49 +137,13 @@
 (require 'yasnippet)
 (yas-global-mode t)
 
-(add-to-list 'load-path
-              "~/.emacs.d/plugins/auto-complete")
-(require 'auto-complete-config)
-(add-to-list 'ac-dictionary-directories "~/.emacs.d/plugins/ac-dict")
-(ac-config-default)
+;; (add-to-list 'load-path
+;;               "~/.emacs.d/plugins/auto-complete")
+;; (require 'auto-complete-config)
+;; (add-to-list 'ac-dictionary-directories "~/.emacs.d/plugins/ac-dict")
+;; (ac-config-default)
 
 ;; auto close paren., and brackets
-(electric-pair-mode 1)
+(electric-pair-mode 0)
 
 
-
-;; ========================================
-;; Web browsing with w3m
-;; ========================================
-
-;;change default browser for 'browse-url'  to w3m
-(setq browse-url-browser-function 'w3m-goto-url-new-session)
- 
-;;change w3m user-agent to android
-(setq w3m-user-agent "Mozilla/5.0 (Linux; U; Android 2.3.3; zh-tw; HTC_Pyramid Build/GRI40) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.")
- 
-;;i need this often
-(defun wikipedia-search (search-term)
-  "Search for SEARCH-TERM on wikipedia"
-  (interactive
-   (let ((term (if mark-active
-                   (buffer-substring (region-beginning) (region-end))
-                 (word-at-point))))
-     (list
-      (read-string
-       (format "Wikipedia (%s):" term) nil nil term)))
-   )
-  (browse-url
-   (concat
-    "http://en.m.wikipedia.org/w/index.php?search="
-    search-term
-    ))
-  )
-
-;;when I want to enter the web address all by hand
-(defun w3m-open-site (site)
-  "Opens site in new w3m session with 'http://' appended"
-  (interactive
-   (list (read-string "Enter website address(default: w3m-home):" nil nil w3m-home-page nil )))
-  (w3m-goto-url-new-session
-   (concat "http://" site)))

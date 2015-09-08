@@ -5,12 +5,16 @@
       '(
 	me/set-mark
 	nonincremental-search-forward
+	orgtbl-self-insert-command
 	smex
 	))
 
 (setq mc/cmds-to-run-once
       '(
+	beginning-of-buffer
 	kill-region
 	me/multiple-words
+	me/select-line
+	org-self-insert-command
 	yas-expand
 	))

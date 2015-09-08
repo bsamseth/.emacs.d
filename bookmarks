@@ -2,9 +2,19 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(("org-refile-last-stored"
+(("org-capture-last-stored-marker"
  (filename . "~/org/personlig.org")
- (front-context-string . "** New value\n:PR")
- (rear-context-string . "\n- [ ] tannkrem\n")
- (position . 264))
+ (front-context-string . "** TODO Si til M")
+ (rear-context-string . "79aa75\n   :END:\n")
+ (position . 359))
+("org-capture-last-stored"
+ (filename . "~/org/personlig.org")
+ (front-context-string . "** TODO Lever ob")
+ (rear-context-string . "58b710\n   :END:\n")
+ (position . 3332))
+("org-refile-last-stored"
+ (filename . "~/org/jobb.org")
+ (front-context-string . "**** TODO Før op")
+ (rear-context-string . "12:15] =>  2:00\n")
+ (position . 1217))
 )

@@ -27,6 +27,14 @@
 (ido-better-flex/enable)
 (ido-ubiquitous-mode 1)
 
+;; Isearch with word of length L:
+;; L = 1     : `ace-jump-mode' or `avy'
+;; 1 < L < 6 : `isearch'
+;; L >= 6    : `helm-swoop'
+
+(require 'ace-isearch)
+(global-ace-isearch-mode +1)
+
 ;; Smex
 (autoload 'smex "smex"
    "Smex is a M-x enhancement for Emacs, it provides a convenient interface to
@@ -38,3 +46,11 @@ your recently and most frequently used commands.")
 
 ;; navigate camelCaseWords as seperate words
 (global-subword-mode 1)
+
+;; on close, make sure all buffers are killed
+;; and delete file that causes org-mobile-push to fail
+(defun me/delete-org-id-locations ()
+  (interactive)
+  (shell-command "rm /home/bendik/.emacs.d/.org-id-locations"))
+(add-hook 'kill-emacs-hook 'me/delete-org-id-locations)
+(add-hook 'kill-emacs-hook 'me/kill-all-buffers)

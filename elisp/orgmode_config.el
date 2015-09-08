@@ -1,4 +1,3 @@
-;
 ;;; This file is for configuration of Org-Mode
 ;;;
 (add-to-list 'load-path (expand-file-name "~/.emacs.d/git/org-mode/lisp"))
@@ -11,48 +10,53 @@
 (global-set-key "\C-cb" 'org-iswitchb)
 (global-set-key "\C-ci" 'org-insert-link)
 (global-set-key (kbd "C-c C-x C-j") 'org-clock-goto)
+(global-set-key (kbd "C-c c") 'org-capture)
 
 ;; org-agenda-files variable that decides what is included in the agenda
 (setq org-agenda-files (quote ("~/org")))
 (add-hook 'org-mode-hook 'auto-fill-mode)
 (add-hook 'kill-emacs-hook 'org-mobile-push)
 (add-hook 'after-init-hook 'org-mobile-pull)
-
-
-;; ========================================
-;; to see a word count that updates every second
-;;
-(defvar count-words-buffer
-  nil
-  "*Number of words in the buffer.")
-
-(defun wicked/update-wc ()
+(defun me/org-mobile-pull-push ()
   (interactive)
-  (setq count-words-buffer (number-to-string (count-words-buffer)))
-  (force-mode-line-update))
+  (org-mobile-pull)
+  (org-mobile-push))
+(run-with-timer 3600 3600 'me.org-mobile-pull-push) ;; run in an hour, every hour
+
+;; ;; ========================================
+;; ;; to see a word count that updates every second
+;; ;;
+;; (defvar count-words-buffer
+;;   nil
+;;   "*Number of words in the buffer.")
+
+;; (defun wicked/update-wc ()
+;;   (interactive)
+;;   (setq count-words-buffer (number-to-string (count-words-buffer)))
+;;   (force-mode-line-update))
   
-; only setup timer once
-(unless count-words-buffer
-  ;; seed count-words-paragraph
-  ;; create timer to keep count-words-paragraph updated
-  (run-with-idle-timer 10 t 'wicked/update-wc))        ;; <--- edit number to change update rate, number is sec/update
+;; ; only setup timer once
+;; (unless count-words-buffer
+;;   ;; seed count-words-paragraph
+;;   ;; create timer to keep count-words-paragraph updated
+;;   (run-with-idle-timer 10 t 'wicked/update-wc))        ;; <--- edit number to change update rate, number is sec/update
 
-;; add count words paragraph the mode line
-(unless (memq 'count-words-buffer global-mode-string)
-  (add-to-list 'global-mode-string " words: " t)
-  (add-to-list 'global-mode-string 'count-words-buffer t)) 
+;; ;; add count words paragraph the mode line
+;; (unless (memq 'count-words-buffer global-mode-string)
+;;   (add-to-list 'global-mode-string " words: " t)
+;;   (add-to-list 'global-mode-string 'count-words-buffer t)) 
 
-;; count number of words in current paragraph
-(defun count-words-buffer ()
-  "Count the number of words in the current paragraph."
-  (interactive)
-  (save-excursion
-    (goto-char (point-min))
-    (let ((count 0))
-      (while (not (eobp))
-	(forward-word 1)
-        (setq count (1+ count)))
-      count)))
+;; ;; count number of words in current paragraph
+;; (defun count-words-buffer ()
+;;   "Count the number of words in the current paragraph."
+;;   (interactive)
+;;   (save-excursion
+;;     (goto-char (point-min))
+;;     (let ((count 0))
+;;       (while (not (eobp))
+;; 	(forward-word 1)
+;;         (setq count (1+ count)))
+;;       count)))
 
 ;; ========================================
 ;; Make checkboxes work with sections as well as lists
@@ -135,7 +139,10 @@ do this for the whole buffer."
 (org-clock-persistence-insinuate)
 
 
-
-
 ;; activate flyspell by default
 (add-hook 'org-mode-hook 'flyspell-mode)
+
+(require 'org-latex)
+(setq org-export-latex-listings 'minted)
+(add-to-list 'org-export-latex-packages-alist '("" "minted"))
+(setq org-src-fontify-natively t)

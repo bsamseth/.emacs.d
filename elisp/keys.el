@@ -26,10 +26,23 @@
 ;; make C-x C-b and C-<TAB> do change buffer
 (define-key my-mode-map (kbd "C-x C-b") 'ido-switch-buffer)
 (define-key my-mode-map (kbd "C-<tab>") 'ido-switch-buffer)
-
+;; make C-x C-k also kill buffer
+(define-key my-mode-map (kbd "C-x C-k") 'ido-kill-buffer)
+;; shortcut for gnus mail
+(define-key my-mode-map (kbd "C-c C-m") 'gnus)
+;; shortcut
+(define-key my-mode-map (kbd "C-M-!") 'me/shell)
+;; Completion
+(define-key my-mode-map (kbd "C-q") 'dabbrev-expand)
 
 ;; ========================================
 ;; Functions made by myself
+
+;; start a shell in a buffer called terminal
+(defun me/shell ()
+  "Starts a shell in a buffer called terminal"
+  (interactive)
+  (shell "terminal"))
 
 ;; set the mark, without starting an active region
 (defun push-mark-no-activate ()
@@ -154,6 +167,11 @@
 (define-key my-mode-map (kbd "<f11>") 'me/fullscreen)
 
 
+(defun me/kill-all-buffers ()
+  "Kill every open buffer"
+  (interactive)
+  (mapc 'kill-buffer (buffer-list)))
+(define-key my-mode-map (kbd "C-u C-u C-u C-x k") 'me/kill-all-buffers)
 ;; ========================================
 ;; Third party functions
 ;;
@@ -169,5 +187,6 @@
 (define-key my-mode-map (kbd "C-c SPC") 'ace-jump-mode)
 (define-key my-mode-map (kbd "C-c C-u SPC") 'ace-jump-char-mode)
 (define-key my-mode-map (kbd "C-c C-u C-u SPC") 'ace-jump-line-mode)
+
 
 
