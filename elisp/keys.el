@@ -10,8 +10,6 @@
 ;; ========================================
 ;; Standard functions
 
-;; use imenu-anywhere!
-(define-key my-mode-map (kbd "M-p") 'imenu-anywhere)
 ;; open menu-bar with M-m
 (define-key my-mode-map (kbd "M-m") 'menu-bar-open)
 ;; swap out beginning-of-line with back-to-indentation
@@ -23,9 +21,6 @@
 (setq next-line-add-newlines t)
 ;; shortcut for querry replace
 (define-key my-mode-map (kbd "C-S-r") 'query-replace-regexp)
-;; make C-x C-b and C-<TAB> do change buffer
-(define-key my-mode-map (kbd "C-x C-b") 'ido-switch-buffer)
-(define-key my-mode-map (kbd "C-<tab>") 'ido-switch-buffer)
 ;; make C-x C-k also kill buffer
 (define-key my-mode-map (kbd "C-x C-k") 'ido-kill-buffer)
 ;; shortcut for gnus mail

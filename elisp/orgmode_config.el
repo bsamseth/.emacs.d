@@ -21,7 +21,7 @@
   (interactive)
   (org-mobile-pull)
   (org-mobile-push))
-(run-with-timer 3600 3600 'me.org-mobile-pull-push) ;; run in an hour, every hour
+;; (run-with-timer 3600 3600 'me/org-mobile-pull-push) ;; run in an hour, every hour
 
 ;; ;; ========================================
 ;; ;; to see a word count that updates every second

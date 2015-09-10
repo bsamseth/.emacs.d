@@ -1,6 +1,55 @@
 ;; This file is for mode specific preferences
 
 
+
+;; ========================================
+;; Helm
+;; ========================================
+(require 'helm)
+(require 'helm-config)
+
+;; The default "C-x c" is quite close to "C-x C-c", which quits Emacs.
+;; Changed to "C-c h". Note: We must set "C-c h" globally, because we
+;; cannot change `helm-command-prefix-key' once `helm-config' is loaded.
+(global-set-key (kbd "C-c h") 'helm-command-prefix)
+(global-unset-key (kbd "C-x c"))
+
+(define-key helm-map (kbd "<tab>") 'helm-execute-persistent-action) ; rebind tab to run persistent action
+(define-key helm-map (kbd "C-i") 'helm-execute-persistent-action) ; make TAB works in terminal
+(define-key helm-map (kbd "C-z")  'helm-select-action) ; list actions using C-z
+
+(when (executable-find "curl")
+  (setq helm-google-suggest-use-curl-p t))
+
+(setq helm-split-window-in-side-p           t ; open helm buffer inside current window, not occupy whole other window
+      helm-move-to-line-cycle-in-source     t ; move to end or beginning of source when reaching top or bottom of source.
+      helm-ff-search-library-in-sexp        t ; search for library in `require' and `declare-function' sexp.
+      helm-scroll-amount                    8 ; scroll 8 lines other window using M-<next>/M-<prior>
+      helm-ff-file-name-history-use-recentf t)
+      
+(helm-autoresize-mode t)                     ; helm window can adjust size depending on number of candidates
+(define-key my-mode-map (kbd "M-x") 'helm-M-x)              ; use helm version of standard functions
+(define-key my-mode-map (kbd "C-x C-f") 'helm-find-files)
+(define-key my-mode-map (kbd "C-x b") 'helm-mini)
+(define-key my-mode-map (kbd "C-x C-b") 'helm-mini)
+(define-key my-mode-map (kbd "M-p") 'helm-semantic-or-imenu)
+(define-key my-mode-map (kbd "M-y") 'helm-show-kill-ring)
+(define-key my-mode-map (kbd "C-c h g") 'helm-google-suggest)  ; very neat!
+(setq helm-M-x-fuzzy-match t) ;; optional fuzzy matching for some functions
+(setq helm-buffers-fuzzy-matching t
+      helm-recentf-fuzzy-match    t)
+(setq helm-semantic-fuzzy-match t
+      helm-imenu-fuzzy-match    t)
+(add-to-list 'helm-sources-using-default-as-input 'helm-source-man-pages)
+(helm-mode 1)
+
+
+
+;; ========================================
+;; Flycheck (live syntax and style checking)
+;; ========================================
+
+
 ;; ========================================
 ;; Python
 ;; ========================================
