@@ -16,5 +16,6 @@
 	me/multiple-words
 	me/select-line
 	org-self-insert-command
+	shell-command
 	yas-expand
 	))
