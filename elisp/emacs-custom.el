@@ -42,6 +42,7 @@
  '(org-todo-keyword-faces (quote (("CANCELED" :foreground "green") ("DONE" . "green") ("WAIT" . "cyan") ("TODO" :foreground "red" :weight bold))))
  '(org-todo-keywords (quote ((sequence "TODO(t)" "WAIT(w@/!)" "APPT(a)" "|" "DONE(d!)" "DELEGATED(g!)" "CANCELED(c@)"))))
  '(package-archives (quote (("gnu" . "http://elpa.gnu.org/packages/") ("melpa" . "http://melpa.milkbox.net/packages/") ("marmalade" . "http://marmalade-repo.org/packages/"))))
+ '(powerline-default-separator (quote wave))
  '(python-indent-offset 4)
  '(send-mail-function nil)
  '(template-use-package t)
@@ -54,4 +55,6 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- )
+ '(powerline-active1 ((t (:inherit mode-line :background "orange3"))))
+ '(powerline-active2 ((t (:inherit mode-line :background "#9245ae"))))
+ '(powerline-inactive1 ((t (:inherit mode-line-inactive :background "#ecd12e")))))
