@@ -54,3 +54,6 @@
   (shell-command "rm /home/bendik/.emacs.d/.org-id-locations"))
 (add-hook 'kill-emacs-hook 'me/delete-org-id-locations)
 (add-hook 'kill-emacs-hook 'me/kill-all-buffers)
+
+(require 'powerline)
+(powerline-default-theme)
