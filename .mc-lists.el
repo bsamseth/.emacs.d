@@ -3,6 +3,9 @@
 
 (setq mc/cmds-to-run-for-all
       '(
+	ace-jump-mode
+	c-electric-colon
+	end-of-buffer
 	me/set-mark
 	nonincremental-search-forward
 	orgtbl-self-insert-command

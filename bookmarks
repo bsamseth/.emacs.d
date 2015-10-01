@@ -9,9 +9,9 @@
  (position . 359))
 ("org-capture-last-stored"
  (filename . "~/org/personlig.org")
- (front-context-string . "** APPT Karriere")
- (rear-context-string . "5>\nAud. 2 i VB.\n")
- (position . 9124))
+ (front-context-string . "** APPT Dra på f")
+ (rear-context-string . "ø. 11:00-14:00>\n")
+ (position . 6347))
 ("org-refile-last-stored"
  (filename . "~/org/jobb.org")
  (front-context-string . "**** TODO Før op")
