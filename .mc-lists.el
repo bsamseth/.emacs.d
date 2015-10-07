@@ -5,9 +5,11 @@
       '(
 	ace-jump-mode
 	c-electric-colon
+	c-electric-paren
 	end-of-buffer
 	me/set-mark
 	nonincremental-search-forward
+	orgtbl-hijacker-command-102
 	orgtbl-self-insert-command
 	smex
 	))

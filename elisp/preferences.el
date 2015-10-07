@@ -57,3 +57,5 @@
 
 (require 'powerline)
 (powerline-default-theme)
+
+(pdf-tools-install)
