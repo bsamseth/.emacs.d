@@ -41,7 +41,7 @@
 (setq helm-semantic-fuzzy-match t
       helm-imenu-fuzzy-match    t)
 (add-to-list 'helm-sources-using-default-as-input 'helm-source-man-pages)
-(helm-mode 1)
+;; (helm-mode 1)
 
 
 

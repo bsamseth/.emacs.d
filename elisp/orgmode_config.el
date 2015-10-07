@@ -142,7 +142,7 @@ do this for the whole buffer."
 ;; activate flyspell by default
 (add-hook 'org-mode-hook 'flyspell-mode)
 
-(require 'org-latex)
-(setq org-export-latex-listings 'minted)
-(add-to-list 'org-export-latex-packages-alist '("" "minted"))
-(setq org-src-fontify-natively t)
+;; (require 'org-latex)
+;; (setq org-export-latex-listings 'minted)
+;; (add-to-list 'org-export-latex-packages-alist '("" "minted"))
+;; (setq org-src-fontify-natively t)
