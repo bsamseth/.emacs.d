@@ -146,3 +146,14 @@ do this for the whole buffer."
 ;; (setq org-export-latex-listings 'minted)
 ;; (add-to-list 'org-export-latex-packages-alist '("" "minted"))
 ;; (setq org-src-fontify-natively t)
+
+(defun my-org-clocktable-indent-string (level)
+  (if (= level 1)
+      ""
+    (let ((str "\\"))
+      (while (> level 2)
+        (setq level (1- level)
+              str (concat str "__")))
+      (concat str "__ "))))
+
+(advice-add 'org-clocktable-indent-string :override #'my-org-clocktable-indent-string)
