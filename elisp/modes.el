@@ -193,6 +193,12 @@
 ;; (ac-config-default)
 
 ;; auto close paren., and brackets
-(electric-pair-mode 0)
+(electric-pair-mode 1)
 
+(add-to-list 'load-path "~/.emacs.d/site-lisp/magit/lisp")
+(require 'magit)
 
+(with-eval-after-load 'info
+  (info-initialize)
+  (add-to-list 'Info-directory-list
+	       "~/.emacs.d/site-lisp/magit/Documentation/"))
