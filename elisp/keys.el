@@ -184,4 +184,5 @@
 (define-key my-mode-map (kbd "C-c C-u C-u SPC") 'ace-jump-line-mode)
 
 
+(define-key my-mode-map (kbd "C-c m") 'magit-status)
 
