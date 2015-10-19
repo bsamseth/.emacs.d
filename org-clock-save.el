@@ -1,2 +1,1 @@
-;; org-persist.el - Samseth at <2015-10-13 ti. 11:05>
-(setq stored-clock-history '())
+;; org-persist.el - Samseth at <2015-10-19 ma. 08:22>

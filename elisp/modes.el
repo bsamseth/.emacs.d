@@ -88,6 +88,9 @@
 (setq reftex-bibliography-commands '("bibliography" "nobibliography" "addbibresource"))
 (setq-default TeX-PDF-mode t)
 
+;; fix verbatim highlight bug
+(setq LaTeX-verbatim-environments-local '("Verbatim" "lstlisting"))
+
 (require 'company-auctex)
 (company-auctex-init)
 
@@ -157,6 +160,13 @@
 
 
 
+;; ========================================
+;; Markdown Mode
+;; =========================================
+(require 'markdown-mode)
+(add-to-list 'auto-mode-alist '("\\.md" . markdown-mode))
+(add-to-list 'auto-mode-alist '("\\.markdown" . markdown-mode))
+(add-to-list 'auto-mode-alist '("README" . markdown-mode))
 
 
 ;; ========================================
