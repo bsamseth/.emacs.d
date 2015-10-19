@@ -170,6 +170,15 @@
 
 
 ;; ========================================
+;; Edit text fields in Chrome with Emacs
+;; ========================================
+(when (require 'edit-server nil t)
+  (setq edit-server-new-frame nil)
+  (edit-server-start))
+
+
+
+;; ========================================
 ;; Misc
 ;; ========================================
 ;; disable autocomplete-mode in minibuffer, IDO does that allready
