@@ -10,7 +10,7 @@
 ;;(add-to-list 'load-path "~/.emacs.d/elisp/")
 
 (load-library "keys")
-(load-library "orgmode_config")
+;;(load-library "orgmode_config")
 (load-library "modes")
 (load-library "preferences")
 ;; (load-library "gnus_config")
