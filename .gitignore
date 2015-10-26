@@ -1,2 +1,6 @@
 session.*
 auto-save-list
+*~
+.org-id-locations
+org-clock-save.el
+bookmarks
