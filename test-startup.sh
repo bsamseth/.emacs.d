@@ -5,7 +5,7 @@ if [ -n "$TRAVIS" ]; then
     ln -s emacs.d ../.emacs.d
 fi
 echo "Attempting startup..."
-${EMACS:=emacs} -nw --batch \
+$1 -nw --batch \
                 --eval '(let ((debug-on-error t)
                               (url-show-status nil)
                               (user-emacs-directory default-directory)
