@@ -25,7 +25,7 @@ Installation should be as easy as cloning the repository:
 ```
 $ cd ~ && git clone https://github.com/bsamseth/.emacs.d
 ```
-Please not however that before you start Emacs you need to edit the
+Please note, however, before you start Emacs you need to edit the
 Org-mode configuration. This depends on certain folders to exist, and
 will cause the load to fail if not handled. As a first, just ignore
 the configuration related to Org-mode. This is done by commenting the
@@ -38,10 +38,9 @@ following line in [init.el](init.el) (showing how the line should look
 (load-library "preferences")
 ```
 
-
 ### Versions
 The master branch should contain a version compatible with the newest
 Emacs. Currently this means Emacs 24.5.1. If you use a different
 version, you may checkout a different branch as older versions will be
-listed there (not a complete list).
-
+listed there (not a complete list). Note that these versions will not
+be maintained and may not include major parts of the current version.
