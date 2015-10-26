@@ -5,7 +5,7 @@ before_install:
   - cd ~/ && git clone https://github.com/bsamseth/.emacs.d.git
   
 script:
-  lsb_release -a && ./test-startup.sh emacs-snapshot
+  cd .emacs.d && lsb_release -a && ./test-startup.sh emacs-snapshot
 
 notifications:
   email: false
