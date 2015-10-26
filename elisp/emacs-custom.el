@@ -52,6 +52,7 @@
 		(org-agenda-span 8))))
       nil nil))))
  '(org-agenda-default-appointment-duration nil)
+ '(org-agenda-include-diary t)
  '(org-agenda-skip-deadline-if-done t)
  '(org-agenda-skip-scheduled-if-done t)
  '(org-babel-load-languages (quote ((emacs-lisp . t) (latex . t) (python . t))))

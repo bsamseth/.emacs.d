@@ -168,6 +168,24 @@
 (add-to-list 'auto-mode-alist '("\\.markdown" . markdown-mode))
 (add-to-list 'auto-mode-alist '("README" . markdown-mode))
 
+;; make øæå work in latex and org mode, and set the ;'[] to M- and then the key
+
+(add-hook 'markdown-mode-hook 
+          (lambda () (local-set-key (kbd "[") #'(lambda () (interactive) (insert "å")))))
+(add-hook 'markdown-mode-hook
+          (lambda () (local-set-key (kbd ";") #'(lambda () (interactive) (insert "ø")))))
+(add-hook 'markdown-mode-hook
+          (lambda () (local-set-key (kbd "'") #'(lambda () (interactive) (insert "æ")))))
+(add-hook 'markdown-mode-hook
+          (lambda () (local-set-key (kbd "M-;") #'(lambda () (interactive) (insert ";")))))
+(add-hook 'markdown-mode-hook
+          (lambda () (local-set-key (kbd "M-[") #'(lambda () (interactive) (insert "[")))))
+(add-hook 'markdown-mode-hook
+          (lambda () (local-set-key (kbd "M-]") #'(lambda () (interactive) (insert "]")))))
+(add-hook 'markdown-mode-hook
+          (lambda () (local-set-key (kbd "M-'") #'(lambda () (interactive) (insert "'")))))
+
+
 
 ;; ========================================
 ;; Edit text fields in Chrome with Emacs

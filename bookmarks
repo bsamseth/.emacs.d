@@ -9,9 +9,9 @@
  (position . 359))
 ("org-capture-last-stored"
  (filename . "~/org/personlig.org")
- (front-context-string . "** TODO Lever pr")
- (rear-context-string . "072997\n   :END:\n")
- (position . 1206))
+ (front-context-string . "** TODO Send mai")
+ (rear-context-string . "059d71\n   :END:\n")
+ (position . 2101))
 ("org-refile-last-stored"
  (filename . "~/org/jobb.org")
  (front-context-string . "**** TODO Før op")

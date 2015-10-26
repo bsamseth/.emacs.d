@@ -1,1 +1,1 @@
-;; org-persist.el - Samseth at <2015-10-19 ma. 09:43>
+;; org-persist.el - Samseth at <2015-10-21 on. 17:45>
