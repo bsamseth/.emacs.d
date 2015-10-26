@@ -2,7 +2,6 @@ language: ruby
 
 before_install:
   - sudo apt-get purge emacs
-  - sudo apt-get purge emacs24
   - git clone https://github.com/rejeep/evm.git $HOME/.evm
   - export PATH=$HOME/.evm/bin:$PATH
 
