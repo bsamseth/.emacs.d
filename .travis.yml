@@ -1,6 +1,8 @@
 language: ruby
 
 before_install:
+  - sudo apt-get purge emacs
+  - sudo apt-get purge emacs24
   - git clone https://github.com/rejeep/evm.git $HOME/.evm
   - export PATH=$HOME/.evm/bin:$PATH
 
@@ -14,12 +16,15 @@ env:
 # - EVM_EMACS=emacs-24.3-travis
 # - EVM_EMACS=emacs-24.4-travis
   - EVM_EMACS=emacs-24.5-travis
-  - EVM_EMACS=emacs-git-snapshot-travis
+# - EVM_EMACS=emacs-git-snapshot-travis
+
+matrix:
+  allow_failures:
+    - env:
+        - EVM_EMACS=emacs-24.5-travis
 
 script:
   lsb_release -a && ./test-startup.sh
 
-# Local Variables:
-# indent-tabs-mode: nil
-# coding: utf-8
-# End:
+notifications:
+  email: false
