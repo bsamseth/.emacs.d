@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: document
+# key: document
+# --
+\documentclass[11pt]{article}$0

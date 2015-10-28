@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: script
+# key: src
+# --
+\begin{itemize}
+\item [] \lstinputlisting[language=$1, label=lst:$2, caption=$4]{$3}
+\end{itemize}$0

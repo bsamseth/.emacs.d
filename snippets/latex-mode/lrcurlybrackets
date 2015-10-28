@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: lrcurlybrackets
+# key: {
+# --
+\left{ $0 \right
