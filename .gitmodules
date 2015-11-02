@@ -1,12 +1,12 @@
 [submodule "magit"]
-	path = magit
-	url = /home/bendik/.emacs.d/site-lisp/magit/
+	path = site-lisp/magit
+	url = https://github.com/magit/magit.git
 [submodule "yasnippet"]
-	path = yasnippet
-	url = /home/bendik/.emacs.d/plugins/yasnippet/
+	path = plugins/yasnippet
+	url = https://github.com/capitaomorte/yasnippet.git
 [submodule "awesome-emacs"]
 	path = awesome-emacs
-	url = /home/bendik/.emacs.d/awesome-emacs/
+	url = https://github.com/emacs-tw/awesome-emacs.git
 [submodule "org-mode"]
-	path = org-mode
-	url = /home/bendik/.emacs.d/git/org-mode/
+	path = git/org-mode
+	url = git://orgmode.org/org-mode.git
