@@ -1,0 +1,12 @@
+# -*- mode: snippet -*-
+# name: twocolumnabstract
+# key: twocolabs
+# --
+\twocolumn[
+\begin{@twocolumnfalse}
+\maketitle
+\begin{abstract}
+$0
+\end{abstract}
+\end{@twocolumnfalse}
+]
