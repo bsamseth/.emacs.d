@@ -201,6 +201,7 @@
 ;; ========================================
 ;; disable autocomplete-mode in minibuffer, IDO does that allready
 (add-hook 'minibuffer-setup-hook (lambda () (auto-complete-mode -1)))
+(winner-mode 1)
 
 ;; Spellchecking
 (setq ispell-dictionary "norsk")
