@@ -166,7 +166,7 @@
   "Kill every open buffer"
   (interactive)
   (mapc 'kill-buffer (buffer-list)))
-(define-key my-mode-map (kbd "C-u C-u C-u C-x k") 'me/kill-all-buffers)
+;; (define-key my-mode-map (kbd "C-u C-u C-u C-x k") 'me/kill-all-buffers)
 ;; ========================================
 ;; Third party functions
 ;;
