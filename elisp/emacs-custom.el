@@ -57,6 +57,7 @@
  '(org-agenda-skip-scheduled-if-done t)
  '(org-babel-load-languages (quote ((emacs-lisp . t) (latex . t) (python . t))))
  '(org-babel-no-eval-on-ctrl-c-ctrl-c t)
+ '(org-blank-before-new-entry (quote ((heading . auto) (plain-list-item . t))))
  '(org-capture-templates
    (quote
     (("t" "Todo" entry
@@ -70,6 +71,7 @@
       "* %^{Navn} %U %?" :clock-resume t))))
  '(org-clock-idle-time 15)
  '(org-clock-into-drawer 2)
+ '(org-cycle-separator-lines 1)
  '(org-log-done (quote time))
  '(org-log-into-drawer t)
  '(org-mobile-inbox-for-pull "~/org/refile.org")
