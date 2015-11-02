@@ -1,9 +1,9 @@
 # Emacs configuration
 This repository contains a full Emacs configuration. The aim is that
-everything needed to get this working is to clone this
-repository. This is however not guarantied, and many dependencies
+everything needed to get it working is to clone this
+repository. This is tested to some extent, but any dependencies
 might need to be resolved. Also note that many of these files are not
-required, but still included.
+required in order to have a fully functional configuration.
 
 ## Structure
 The structure of this configuration is as follows:
@@ -13,7 +13,7 @@ The structure of this configuration is as follows:
    configuration is loaded from separate files.
 2. Specific configuration is placed in a suitable file in [elisp](elisp/).
   * [modes.el](elisp/modes.el) for things related to specific modes
-  * [keys.el](elisp/keys.el) for keybindings (not specific to a mode)
+  * [keys.el](elisp/keys.el) for key bindings (not specific to a mode)
   * [preferences.el](elisp/preferences.el), misc. configuration.
 
 If some parts of the whole configuration is not wanted, this way of
@@ -21,22 +21,20 @@ separating things makes it a bit easier to manage.
 This structure is followed to some extent. 
 
 ## Installation
-Installation should be as easy as cloning the repository:
+Installation should be as easy as cloning the repository and running the [install script](install.sh):
 ```
 $ cd ~ && git clone https://github.com/bsamseth/.emacs.d
+$ cd .emacs && ./install.sh
 ```
-Please note, however, before you start Emacs you need to edit the
-Org-mode configuration. This depends on certain folders to exist, and
-will cause the load to fail if not handled. As a first, just ignore
-the configuration related to Org-mode. This is done by commenting the
-following line in [init.el](init.el) (showing how the line should look
-*after* your change, with some context):
+Note that this might take some time as it need to also download third-party repositories (see [.gitmodule](.gitmodule)).
+
+Note also that all configuration related to org-mode will not be loaded. For this to happen you will need to
+add/change certain paths in the [elisp/orgmode_config.el](org-mode configuration). Then the line
 ```
-(load-library "keys")
-;; (load-library "orgmode_config")
-(load-library "modes")
-(load-library "preferences")
+(load-library "orgmode_config")
 ```
+may be left uncommented in order to load the configuration.
+
 
 ### Versions
 The master branch should contain a version compatible with the newest
