@@ -26,10 +26,10 @@ Installation should be as easy as cloning the repository and running the [instal
 $ cd ~ && git clone https://github.com/bsamseth/.emacs.d
 $ cd .emacs && ./install.sh
 ```
-Note that this might take some time as it need to also download third-party repositories (see [.gitmodule](.gitmodule)).
+Note that this might take some time as it need to also download third-party repositories (see [.gitmodules](.gitmodules)).
 
 Note also that all configuration related to org-mode will not be loaded. For this to happen you will need to
-add/change certain paths in the [elisp/orgmode_config.el](org-mode configuration). Then the line
+add/change certain paths in the [org-mode configuration](elisp/orgmode_config.el). Then the line
 ```
 (load-library "orgmode_config")
 ```
