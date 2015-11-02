@@ -209,7 +209,7 @@
 
 
 ;; c style
-(setq c-default-style "java" c-basic-offset 4)
+(setq c-default-style "java" c-basic-offset 2)
 
 ;; lisp goodness loads from here
 (setq load-path (cons (expand-file-name "~/.emacs.d/lisp/")
